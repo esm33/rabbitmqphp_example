@@ -23,15 +23,44 @@ function SendLoginRequest(username,password)
 	}
 	request.send("type=login&uname="+username+"&pword="+password);
 }
+
+function getLoginInfo()
+{
+	alert("login button clicked!");
+	const username_text_input = document.getElementById("username");
+	const username_input_value = username_text_input.value;
+	
+	const password_text_input = document.getElementById("password");
+	const password_input_value = password_text_input.value;
+
+	//keep track, just in case	NTS: when in doubt, console.log
+	console.log("Username: ", username_input_value);
+	console.log("Password: ", password_input_value);
+
+	SendLoginRequest(username_input_value, password_input_value);
+}
+
+
 </script>
 
 <h1>login page</h1>
 <body>
+<div id="user_login_input">
+
+	<label for="username">Username: </label>
+	<input type="text" id="username" name="username">
+	<br>
+	<label for="password">Password: </label>
+	<input type="password" id="password" name="password">
+	<button type="button" onclick="getLoginInfo()">Login</button>
+
+
+</div>
 <div id="textResponse">
 awaiting response
 </div>
 <script>
-SendLoginRequest("kehoed","12345");
+//SendLoginRequest("kehoed","12345");
 </script>
 </body>
 </html>
